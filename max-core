@@ -1,0 +1,33 @@
+public class Student
+{
+  private String name;
+  private int score;
+
+  public Student(String name, int score)
+  {
+    this.name = name;
+    this.score = score;
+  }
+
+public class APScores  
+{
+  private double max;
+  private ArrayList<Integer> results;
+  public APScores(double maximum, ArrayList<Integer> results)
+  {
+    max = maximum;
+    scores = students
+  }
+
+  public int findMax()
+  {
+    int highest = 0;
+    for (int i = 0; i < scores.length; i++)
+    {
+      if (scores[i] > scores[i+1])
+      {
+        highest = scores[i];
+      }
+    }
+  return highest;
+  }
