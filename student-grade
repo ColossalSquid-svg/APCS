@@ -15,8 +15,10 @@ public class Main {
       Course spanish = new Course(3, "Spanish", "Language", false);
       // list of scores
       StudentCourseScore si = new StudentCourseScore(87, 1, 0.45);
-      StudentCourseScore ja = new StudentCourseScore(88, 2, 0.81);
+      StudentCourseScore ja = new StudentCourseScore(87, 2, 0.81);
       StudentCourseScore gr = new StudentCourseScore(89, 3, 0.70);
+      
+      StudentCourseScore[] scss = {si, ja,  gr};
       
       /*
       String apCSASimonScore = simon.getName() + " " + apcsa.getCourseName() + " " + apcsa.getCourseDes() + " " + si.getScore();
@@ -31,10 +33,17 @@ public class Main {
         // print each element
         for (Student student : students) {
             System.out.print(student.getName() +"\r\n");
+            // find course scores for the student
+            
+          for (StudentCourseScore s : scss) {
+              if (student.getStudentID() == s.getStudentID())
+              System.out.print(s.getCourseID() +"\r\n");
+          }
+            
         }
       
   }
-
+}
 public class Student
 {
   private String name;//"Simon Li"
@@ -46,12 +55,21 @@ public class Student
     this.studentID = studentID;
   }
   
+  public String getName()
+  {
+    return name;
+  }
+  
+  
+  public int getStudentID()
+  {
+    return studentID;
+  }
   public String toString()
   {
     return name + " " + studentID;
   }
 }
-
 
 public class Course
 {
@@ -67,8 +85,27 @@ public class Course
     this.courseDescript = courseDescript;
     this.ap = ap;
   }
+  
+  public int getCourseID()
+  {
+    return courseID;
+  }
+  
+  public String getCourseName()
+  {
+    return courseName;
+  }
+  
+  public String getCourseDes()
+  {
+    return courseDescript;
+  }
+  
+  public boolean getAp()
+  {
+    return ap;
+  }
 }
-
 
 public class StudentCourseScore
 {
@@ -76,18 +113,30 @@ public class StudentCourseScore
   private int courseID;
   private double score; // percentage of correnctness
   
-  public StudentCourseScore(int studentID, int courseID, boolean score)
+  public StudentCourseScore(int studentID, int courseID, double score)
   {
     this.studentID = studentID;
     this.courseID = courseID;
     this.score = score;
   }
-  
-    public StudentCourseScore(string studentName, int courseID, boolean score)
-    {
-      this.studentID = studentID;
-      this.courseID = courseID;
-      this.score = score;
-    }
-}
 
+  public int getStudentID()
+  {
+    return studentID;
+  }
+  
+  public int getCourseID()
+  {
+    return courseID;
+  }
+  
+  public double getScore()
+  {
+    return score;
+  }
+  
+  public int getCourseID(int studentId)
+  {
+    return courseID;
+  }  
+}
