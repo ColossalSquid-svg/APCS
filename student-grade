@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      // list of students
+      Student simon = new  Student("Simon", 0.45);
+      Student jade = new Student("Jade", 94);
+      Student grace = new Student("Grace", 85);
+      
+      // list of courses
+      Course apcsa = new Course(1, "APCSA", "Coding", true);
+      Course apwh = new Course(2, "APWH", "World History", true);
+      Course spanish = new Course(3, "Spanish", "Language", false);
+      // list of scores
+      StudentCourseScore quesadilla = new StudentCourseScore(87, 1, 87.0);
+      StudentCourseScore noodles = new StudentCourseScore(2, 20, 91.7);
+      StudentCourseScore quesadilla = new StudentCourseScore(3, 30, 70.0);
+      
+      System.out.println(simon);
+      
+  }
+}
+
+public class Student
+{
+  private String name;//"Simon Li"
+  private int studentID;
+
+  public Student(String name, int studentID)
+  {
+    this.name = name;
+    this.studentID = studentID;
+  }
+  
+  public String toString()
+  {
+    return name + " " + studentID;
+  }
+}
+
+
+public class Course
+{
+  private int courseID;
+  private String courseName;
+  private String courseDescript;
+  private boolean ap;
+  
+  public Course(int courseID, String courseName, String courseDescript, boolean ap)
+  {
+    this.courseID = courseID;
+    this.courseName = courseName;
+    this.courseDescript = courseDescript;
+    this.ap = ap;
+  }
+}
+
+
+public class StudentCourseScore
+{
+  private int studentID;
+  private int courseID;
+  private double score; // percentage of correnctness
+  
+  public StudentCourseScore(int studentID, int courseID, boolean score)
+  {
+    this.studentID = studentID;
+    this.courseID = courseID;
+    this.score = score;
+  }
+  
+    public StudentCourseScore(string studentName, int courseID, boolean score)
+    {
+      this.studentID = studentID;
+      this.courseID = courseID;
+      this.score = score;
+    }
+}
+
