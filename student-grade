@@ -3,23 +3,37 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
       // list of students
-      Student simon = new  Student("Simon", 0.45);
-      Student jade = new Student("Jade", 94);
-      Student grace = new Student("Grace", 85);
+      Student simon = new  Student("Simon", 87);
+      Student jade = new Student("Jade", 88);
+      Student grace = new Student("Grace", 89);
+      
+      Student[] students = {simon, jade,  grace};
       
       // list of courses
       Course apcsa = new Course(1, "APCSA", "Coding", true);
       Course apwh = new Course(2, "APWH", "World History", true);
       Course spanish = new Course(3, "Spanish", "Language", false);
       // list of scores
-      StudentCourseScore quesadilla = new StudentCourseScore(87, 1, 87.0);
-      StudentCourseScore noodles = new StudentCourseScore(2, 20, 91.7);
-      StudentCourseScore quesadilla = new StudentCourseScore(3, 30, 70.0);
+      StudentCourseScore si = new StudentCourseScore(87, 1, 0.45);
+      StudentCourseScore ja = new StudentCourseScore(88, 2, 0.81);
+      StudentCourseScore gr = new StudentCourseScore(89, 3, 0.70);
       
-      System.out.println(simon);
+      /*
+      String apCSASimonScore = simon.getName() + " " + apcsa.getCourseName() + " " + apcsa.getCourseDes() + " " + si.getScore();
+      System.out.println(apCSASimonScore);
+      */
+      
+      //print studentname+coursename+coursescore for all students
+        // Array declaration
+        int arr[] = { 1, 2, 3, 4, 5 };
+        
+        // Using for-each loop to 
+        // print each element
+        for (Student student : students) {
+            System.out.print(student.getName() +"\r\n");
+        }
       
   }
-}
 
 public class Student
 {
