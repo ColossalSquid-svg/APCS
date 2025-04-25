@@ -41,7 +41,26 @@ public class Main {
           }
             
         }
-      
+
+for (int i = 0; i < scss.length-1; i++)
+        {
+          if(scss[i].getScore() > scss[i+1].getScore())
+          {
+            for (int j = 0; j < courses.length-1; j++)
+            {
+              if(courses[j].getCourseID() == scss[i].getCourseID())
+              {
+                for(int k = 0; k < students.length-1; k++)
+                {
+                  if(students[k].getStudentID() == scss[j].getStudentID())
+                  {
+                    System.out.println(students[k].getName() + " " + scss[i].getScore());
+                  }
+                }
+              }
+            }
+          }
+        }
   }
 }
 public class Student
