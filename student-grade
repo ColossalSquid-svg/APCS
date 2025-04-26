@@ -1,6 +1,25 @@
 import java.util.*;
 
 public class Main {
+    
+    public static double getStudentWithHighestScore(StudentCourseScore[] scores, Course[] core, Student[] name,  int cID)
+    {
+      double max = scores[0].getScore();
+      for (int i = 1; i < scores.length; i++) // traverse StudentCourseScore array
+      {
+        if(scores[i].getCourseID() == cID) //check if courseID in StudentCourseScore array
+        {                                                                 //  = courseID in course array
+          if(scores[i].getScore() > max) // checks if scores[1 and onward] > scores[0], then sets max to that value
+          {
+            max = scores[i].getScore(); 
+          }
+        }
+      }
+      System.out.print("max is " + max);
+      return max;
+    }
+    
+    
     public static void main(String[] args) {
       // list of students
       Student simon = new  Student("Simon", 87);
@@ -13,56 +32,20 @@ public class Main {
       Course apcsa = new Course(1, "APCSA", "Coding", true);
       Course apwh = new Course(2, "APWH", "World History", true);
       Course spanish = new Course(3, "Spanish", "Language", false);
+      
+      Course[] courses = {apcsa, apwh, spanish};
       // list of scores
-      StudentCourseScore si = new StudentCourseScore(87, 1, 0.45);
-      StudentCourseScore ja = new StudentCourseScore(87, 2, 0.81);
-      StudentCourseScore gr = new StudentCourseScore(89, 3, 0.70);
+      StudentCourseScore simon_apcsa_score = new StudentCourseScore(87, 1, 0.45);
+      StudentCourseScore jade_apcsa_score = new StudentCourseScore(88, 1, 0.69);
+      StudentCourseScore jade_spanish_score = new StudentCourseScore(88, 3, 0.69);
+      StudentCourseScore grace_apcsa_score = new StudentCourseScore(89, 1, 0.70);
+      StudentCourseScore grace_apwh_score = new StudentCourseScore(89, 2, 0.70);
       
-      StudentCourseScore[] scss = {si, ja,  gr};
+      StudentCourseScore[] scss = {simon_apcsa_score, jade_apcsa_score, grace_apcsa_score};
       
-      /*
-      String apCSASimonScore = simon.getName() + " " + apcsa.getCourseName() + " " + apcsa.getCourseDes() + " " + si.getScore();
-      System.out.println(apCSASimonScore);
-      */
+      getStudentWithHighestScore(scss, courses, students, 1);
       
-      //print studentname+coursename+coursescore for all students
-        // Array declaration
-        int arr[] = { 1, 2, 3, 4, 5 };
-        
-        // Using for-each loop to 
-        // print each element
-        for (Student student : students) {
-            System.out.print(student.getName() +"\r\n");
-            // find course scores for the student
-            
-          for (StudentCourseScore s : scss) {
-              if (student.getStudentID() == s.getStudentID())
-              System.out.print(s.getCourseID() +"\r\n");
-          }
-            
-        }
-
-for (int i = 0; i < scss.length-1; i++)
-        {
-          if(scss[i].getScore() > scss[i+1].getScore())
-          {
-            for (int j = 0; j < courses.length-1; j++)
-            {
-              if(courses[j].getCourseID() == scss[i].getCourseID())
-              {
-                for(int k = 0; k < students.length-1; k++)
-                {
-                  if(students[k].getStudentID() == scss[j].getStudentID())
-                  {
-                    System.out.println(students[k].getName() + " " + scss[i].getScore());
-                  }
-                }
-              }
-            }
-          }
-        }
-  }
-}
+    
 public class Student
 {
   private String name;//"Simon Li"
