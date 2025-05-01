@@ -30,6 +30,15 @@ public class Main {
         Animal p = new Dog("Jade");
         p.eat();
 
-      
+
+        Animal a = new Animal("Jade");
+        a.eat();
+        a = p;
+        a.eat();
+        
+        a = myDog;
+        a.eat();
+        
+        myDog = a;// compile error
     }
 }
