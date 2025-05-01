@@ -1,0 +1,41 @@
+Considering the following code, what is the value of d as a result?
+int a = 3 + 2 * 3; // a = 9
+int b = 4 + 3 / 2; // 3/2 results in java calculating 1. b = 5
+int c = 7 % 4 + 3; // 7 % 4 calculates as 3 due to 3 being remainder. c = 6
+double d = a + b + c; // d = 20
+
+Consider the following code segment. Assume num is a properly declared and initialized int variable. Best describe the result of executing the code?
+if (num > 0) // This line checks if num is positive
+{
+  if (num % 2 == 0) // This line then checks if num is an even integer. If true, print "A". Otherwise the code assumes that num is an odd integer, therefore print "B".
+  {
+    System.out.println("A");
+  }
+  else
+  {
+    System.out.println("B");
+  }
+}  // Because there isn't a print statement after the if statement, the best description would be 
+// (When num is a positive even integer, "A" is printed; when num is a positive odd integer, "B" is printed; otherwise, nothing is printed.)
+
+public static double getHours(int marker1, int marker2) // This code requires a statement to calculate the number of hours that a vehicle takes to travel between two mile markers on 
+// a highway if the vehicle travels at a constant speed of 60 miles per hour. A mile marker is a sign showing the number of miles along a road between some fixed location 
+// (for example, the beginning of a highway) and the current location.
+{
+/* missing statement */ // For this statement, we need to find the distance between marker1 and marker2 and then divide it by 60, assuming the vehicle is travelling at a constant 60 mph.
+return hours; // The distance between marker1 and marker2 cannot be negative because speed can never be negative, therefore we need the Math.abs to always print out a positive integer.
+} // double hours = Math.abs(marker1 - marker2) / 60.0
+
+Consider the following class definition. What constructor, if added to the Bird class, will cause a compilation error?
+public class Bird
+{
+private String species;
+private String color;
+private boolean canFly;
+public Bird(String str, String col, boolean cf) // In other for a compilation error to occur,
+{
+species = str;
+color = col;
+canFly = cf;
+}
+}
