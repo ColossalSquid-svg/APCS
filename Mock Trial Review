@@ -32,10 +32,81 @@ public class Bird
 private String species;
 private String color;
 private boolean canFly;
-public Bird(String str, String col, boolean cf) // In other for a compilation error to occur,
-{
-species = str;
+public Bird(String str, String col, boolean cf) // In other for a compilation error to occur, the new constructor would need the same signature
+{                                           // as the existing constructor (String, String, boolean), therefore, a constructor that would cause a
+species = str;                             // compilation error would be (String col, String str, boolean cf)                              
 color = col;
 canFly = cf;
 }
 }
+
+Considering the following definition,
+public class SomeClass
+{
+private int x = 0;
+private static int y = 0; // Because y is a static int, it will not be reset when the SomeClass constructor is made.
+public SomeClass(int pX)
+  {
+  x = pX;
+  y++;
+  }
+public void incrementY()
+  {
+  y++; 
+  }
+public void incrementY(int inc)
+  {
+y += inc; 
+  }
+public int getY()
+  { 
+return y; 
+  }
+}
+Following the code, what will be the value of y?
+SomeClass first = new SomeClass(10); // This line will increase the value of y by 1. The current value of y is 1.
+SomeClass second = new SomeClass(20); // This line will increase the value of y by 1. The current value of y is 2.
+SomeClass third = new SomeClass(30); // This line will increase the value of y by 1. The current value of y is 3.
+first.incrementY(); // This line will increase the value of y by 1. The current value of y is 4.
+second.incrementY(10); This line will increase the value of y by 10. The current value of y is 14.
+System.out.println(third.getY()); // This line prints the value of y. So now y is 14.
+
+Use enhanced for loop to print out all of the values of int[][] arr.
+for (int[] j : arr) // This for loop will traverse through all of the rows of the 2D Array.
+{
+ for (int k : j) // This for loop will traverse through all of the columns of the 2D Array.
+ {
+ System.out.print(k + " "); // k is already instantiated to be print arr[j][k].
+ }
+}
+
+Consider the following method.
+public static String[] strArrMethod(String[] arr)
+{
+String[] result = new String[arr.length];
+for (int j = 0; j < arr.length; j++) // In this code's case, arr.length = 4
+  {
+  String sm = arr[j];
+  for (int k = j + 1; k < arr.length; k++)
+    {
+    if (arr[k].length() < sm.length()) // Compares if the length of arr[k] < sm, or arr[j]'s length.
+      {                               // Then sets sm, or arr[j] to arr[k] as seen in line 12.
+      sm = arr[k]; // Line 12 
+      }  // In summary, this if statement will set whatever String with the shortest length to arr[j], which will then be added to the result array.
+    }
+    result[j] = sm;
+  }
+  return result;
+}
+Considering this code, what are the values for resultOne?
+String[] testOne = {"first", "day", "of", "spring"};
+String[] resultOne = strArrMethod(testOne);
+// resultOne will be {"of", "of", "of", "spring"} because in the second for loop with k, when j = 3, k = 4, which would come out false on
+// the second for loop, therefore it will never run. So for the final result, the last element of the array will not change.
+
+Considering this code, how many times will line 12 run?
+String[] testTwo = {"last", "day", "of", "the", "school", "year"};
+String[] resultTwo = strArrMethod(testTwo);
+// The code will run 1 time because line 12 will run when j = 0, "day" is less than "last".
+// The code will run 2 times because line 12 will run when j = 1, "of" is less than "day".
+// The code will run 3 time because line 12 will run when j = 0, "day" is less than "last".
