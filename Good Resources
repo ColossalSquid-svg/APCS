@@ -1,2 +1,3 @@
+The compareTo() method in Java's String class compares two strings lexicographically based on the Unicode/ascii values of their characters.
 https://www.ascii-code.com/
 https://w3schools.com/java/ref_string_compareto.asp
