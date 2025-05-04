@@ -1,0 +1,42 @@
+public class Spinner
+{
+  private int numSectors; // sectors from  1, 2, ...
+  private int lastSpinResult;// defualt 0, not on any sector
+  private int lengthOfCurrentRun;
+  private int currentSpinResult;
+  
+  public Spinner(int numSectors)
+  {
+    if (numSectors < 3)
+    {
+      return null;
+    }
+    this.numSectors = numSectors;
+  }
+  
+  public int spin()
+  {
+    currentSpinResult = (int) (Math.random() * numSectors);
+    lastSpinResult = currentSpinResult;
+    
+    lengthOfCurrentRun = getCurrentRun();
+    return currentSpinResult;
+  }
+  
+  public int getCurrentRun()
+  {
+    if(lastSpinResult == 0)
+    {
+      lengthOfCurrentRun == 0;
+      return 0;
+    }
+    else
+    {
+      if(lengthOfCurrentRun == lastSpinResult)
+      {
+        
+      }
+    }
+  }
+  
+}
