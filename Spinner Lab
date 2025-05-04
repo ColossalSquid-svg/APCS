@@ -9,7 +9,7 @@ public class Spinner
   {
     if (numSectors < 3)
     {
-      return null;
+      throw new IllegalArgumentException("Minimum 3 sectors");
     }
     this.numSectors = numSectors;
   }
@@ -17,6 +17,10 @@ public class Spinner
   public int spin()
   {
     currentSpinResult = (int) (Math.random() * numSectors);
+    if(currentSpinResult == 0)
+    {
+      currentSpinResult = 1;
+    }
     lastSpinResult = currentSpinResult;
     
     lengthOfCurrentRun = getCurrentRun();
@@ -27,16 +31,21 @@ public class Spinner
   {
     if(lastSpinResult == 0)
     {
-      lengthOfCurrentRun == 0;
+      lengthOfCurrentRun = 0;
       return 0;
     }
     else
     {
-      if(lengthOfCurrentRun == lastSpinResult)
+      if(currentSpinResult == lastSpinResult)
       {
-        
+        lengthOfCurrentRun++;
+      }
+      else
+      {
+        lengthOfCurrentRun = 1;
       }
     }
+    return lengthOfCurrentRun;
   }
   
 }
